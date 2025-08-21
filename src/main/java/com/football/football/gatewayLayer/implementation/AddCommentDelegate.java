@@ -11,7 +11,7 @@ public class AddCommentDelegate implements IAddCommentDelegate {
     private AddCommentPublishStep addCommentPublishStep;
 
     @Override
-    public void addComment(String comment) {
-        addCommentPublishStep.publishComment(comment);
+    public boolean addComment(String comment) {
+        return addCommentPublishStep.publishComment(comment);
     }
 }
