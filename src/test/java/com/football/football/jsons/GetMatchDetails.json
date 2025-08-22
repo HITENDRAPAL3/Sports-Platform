@@ -1,0 +1,64 @@
+{
+  "matchId": "12345",
+  "date": "2025-08-22T18:00:00Z",
+  "competition": "Premier League",
+  "stadium": "Old Trafford",
+  "homeTeam": {
+    "id": "100",
+    "name": "Manchester United",
+    "score": 2
+  },
+  "awayTeam": {
+    "id": "101",
+    "name": "Chelsea FC",
+    "score": 1
+  },
+  "status": "FINISHED",
+  "referee": "John Smith",
+  "events": [
+    {
+      "minute": 34,
+      "type": "goal",
+      "team": "Manchester United",
+      "player": "Bruno Fernandes"
+    },
+    {
+      "minute": 75,
+      "type": "yellow_card",
+      "team": "Chelsea FC",
+      "player": "Mason Mount"
+    }
+  ],
+  "finalResult": "Home win",
+  "goals": [
+    {
+      "minute": 34,
+      "team": "Manchester United",
+      "player": "Bruno Fernandes"
+    },
+    {
+      "minute": 67,
+      "team": "Chelsea FC",
+      "player": "Raheem Sterling"
+    },
+    {
+      "minute": 89,
+      "team": "Manchester United",
+      "player": "Marcus Rashford"
+    }
+  ],
+  "lineups": {
+    "home": ["Player 1", "Player 2", "..."],
+    "away": ["Player A", "Player B", "..."]
+  },
+  "statistics": {
+    "possessionHome": 54,
+    "possessionAway": 46,
+    "shotsHome": 12,
+    "shotsAway": 10,
+    "foulsHome": 10,
+    "foulsAway": 8,
+    "cornersHome": 5,
+    "cornersAway": 4
+  }
+}

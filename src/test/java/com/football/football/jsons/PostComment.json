@@ -1,0 +1,9 @@
+{
+  "commentId": "cmt123",
+  "matchId": "match789",
+  "userId": "user456",
+  "userName": "JohnDoe",
+  "text": "Great match!",
+  "timestamp": "2025-08-22T11:00:00Z",
+  "rating": 4
+}
