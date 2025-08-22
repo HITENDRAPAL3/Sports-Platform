@@ -1,6 +1,6 @@
 package com.football.football.ControllerLayer;
 
-import com.football.football.DomainLayer.DTO.MatchCommentDTOs.MatchCommentDTO;
+import com.football.football.ControllerLayer.Models.MatchComment;
 import com.football.football.GatewayLayer.implementation.AddCommentDelegate;
 import com.football.football.GatewayLayer.implementation.GetDetailsDelegate;
 import org.springframework.http.HttpStatus;
@@ -26,14 +26,13 @@ public class ExposeExternalEndpoint {
     }
 
     @PostMapping("/addComment")
-    public ResponseEntity<?> addComment(@RequestBody MatchCommentDTO comment) {
+    public ResponseEntity<?> addComment(@RequestBody MatchComment comment) {
         boolean success = addCommentDelegate.addComment(comment);
         if (success) {
             return ResponseEntity.ok(Map.of("Message:", "Comment added successfully"));
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add comment");
         }
-
     }
 
 }

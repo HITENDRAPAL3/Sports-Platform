@@ -1,3 +1,4 @@
 com.football.football.gatewayLayer.configs.DelegateConfigs
 com.football.football.serviceLayer.config.ServiceConfig
 com.football.football.common.config.propertiesConfig
+com.football.football.GatewayLayer.configs.MappersConfig
