@@ -1,6 +1,7 @@
 package com.football.football.ControllerLayer;
 
 import com.football.football.ControllerLayer.Models.MatchComment;
+import com.football.football.ControllerLayer.Models.MatchEvent;
 import com.football.football.GatewayLayer.implementation.AddCommentDelegate;
 import com.football.football.GatewayLayer.implementation.GetDetailsDelegate;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,16 @@ public class ExposeExternalEndpoint {
         boolean success = addCommentDelegate.addComment(comment);
         if (success) {
             return ResponseEntity.ok(Map.of("Message:", "Comment added successfully"));
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add comment");
+        }
+    }
+
+    @PostMapping("/addMatchEvent")
+    public ResponseEntity<?> addMatchEvent(@RequestBody MatchEvent event) {
+        boolean success = addCommentDelegate.addEvent(event);
+        if (success) {
+            return ResponseEntity.ok(Map.of("Message:", "Event added successfully"));
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add comment");
         }
