@@ -10,8 +10,15 @@ import org.springframework.kafka.config.TopicBuilder;
 public class KafkaConfig {
 
     @Bean
-    public NewTopic topic() {
-        return TopicBuilder.name(AppConstants.TOPIC_NAME)
+    public NewTopic topicForMatchComments() {
+        return TopicBuilder.name(AppConstants.TOPIC_NAME_FOR_MATCH_COMMENTS)
+                .partitions(3)
+                .build();
+    }
+
+    @Bean
+    public NewTopic topicForMatchEvents() {
+        return TopicBuilder.name(AppConstants.TOPIC_NAME_FOR_MATCH_EVENTS)
                 .partitions(3)
                 .build();
     }

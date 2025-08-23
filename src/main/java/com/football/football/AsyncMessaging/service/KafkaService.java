@@ -23,7 +23,7 @@ public class KafkaService {
 
     public boolean publishMsg(MatchCommentDTO msg) {
         try {
-            this.kafkaTemplateForComment.send(AppConstants.TOPIC_NAME, msg);
+            this.kafkaTemplateForComment.send(AppConstants.TOPIC_NAME_FOR_MATCH_COMMENTS, msg);
             logger.info("Message sent successfully");
         } catch (Exception e) {
             logger.error("Failed to send Message");
@@ -34,7 +34,7 @@ public class KafkaService {
 
     public boolean publishMsg(MatchEventPlayerDTO msg) {
         try {
-            this.kafkaTemplateForEvent.send(AppConstants.TOPIC_NAME, msg);
+            this.kafkaTemplateForEvent.send(AppConstants.TOPIC_NAME_FOR_MATCH_EVENTS, msg);
             logger.info("Message sent successfully");
         } catch (Exception e) {
             logger.error("Failed to send Message");
