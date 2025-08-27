@@ -1,9 +1,6 @@
 package com.football.football.GatewayLayer.configs;
 
-import com.football.football.GatewayLayer.Mappers.IMapMatchCommentToMatchCommentDTO;
-import com.football.football.GatewayLayer.Mappers.IMapMatchCommentToMatchCommentDTOImpl;
-import com.football.football.GatewayLayer.Mappers.IMapMatchEventToMatchEventPlayerDTO;
-import com.football.football.GatewayLayer.Mappers.IMapMatchEventToMatchEventPlayerDTOImpl;
+import com.football.football.GatewayLayer.Mappers.*;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
@@ -18,6 +15,11 @@ public class MappersConfig {
     @Bean
     public IMapMatchEventToMatchEventPlayerDTO mapMatchEventToMatchEventPlayerDTO() {
         return new IMapMatchEventToMatchEventPlayerDTOImpl();
+    }
+
+    @Bean
+    public IMapMatchScoreDetailsToMatchScoreDetailsDTO mapMatchScoreDetailsToMatchScoreDetailsDTO() {
+        return new IMapMatchScoreDetailsToMatchScoreDetailsDTOImpl();
     }
 
 }

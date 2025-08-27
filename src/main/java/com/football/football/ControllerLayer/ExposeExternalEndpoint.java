@@ -2,8 +2,9 @@ package com.football.football.ControllerLayer;
 
 import com.football.football.ControllerLayer.Models.MatchComment;
 import com.football.football.ControllerLayer.Models.MatchEvent;
-import com.football.football.GatewayLayer.implementation.AddCommentDelegate;
-import com.football.football.GatewayLayer.implementation.GetDetailsDelegate;
+import com.football.football.ControllerLayer.Models.MatchScoreDetails;
+import com.football.football.GatewayLayer.implementation.AddCommentsAndEventsDelegate;
+import com.football.football.GatewayLayer.implementation.MatchDetailsDelegate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,19 +18,27 @@ import java.util.Map;
 public class ExposeExternalEndpoint {
 
     @Inject
-    private GetDetailsDelegate getDetailsDelegate;
+    private MatchDetailsDelegate matchDetailsDelegate;
 
     @Inject
-    private AddCommentDelegate addCommentDelegate;
+    private AddCommentsAndEventsDelegate addCommentsAndEventsDelegate;
 
+    // for CRUD operations
     @GetMapping("/getMatchDetails")
-    public ResponseEntity<?> getMatchDetails() {
-        return ResponseEntity.ok(getDetailsDelegate.getDetails());
+    public ResponseEntity<?> getMatchDetails(@RequestParam String matchId) {
+        return ResponseEntity.ok(matchDetailsDelegate.getDetails(matchId));
     }
 
+    @PostMapping("/addMatchDetails")
+    public ResponseEntity<?> addMatchDetails(@RequestBody MatchScoreDetails matchScoreDetails) {
+        matchDetailsDelegate.addDetails(matchScoreDetails);
+        return ResponseEntity.ok("Match Details added successfully");
+    }
+
+    // for external events
     @PostMapping("/addComment")
     public ResponseEntity<?> addComment(@RequestBody MatchComment comment) {
-        boolean success = addCommentDelegate.addComment(comment);
+        boolean success = addCommentsAndEventsDelegate.addComment(comment);
         if (success) {
             return ResponseEntity.ok(Map.of("Message:", "Comment added successfully"));
         } else {
@@ -39,7 +48,7 @@ public class ExposeExternalEndpoint {
 
     @PostMapping("/addMatchEvent")
     public ResponseEntity<?> addMatchEvent(@RequestBody MatchEvent event) {
-        boolean success = addCommentDelegate.addEvent(event);
+        boolean success = addCommentsAndEventsDelegate.addEvent(event);
         if (success) {
             return ResponseEntity.ok(Map.of("Message:", "Event added successfully"));
         } else {

@@ -6,7 +6,7 @@ import com.football.football.DomainLayer.DTO.MatchEventDTOs.MatchEventPlayerDTO;
 
 import javax.inject.Inject;
 
-public class AddCommentPublishStep {
+public class AddCommentsAndEventsPublishStep {
 
     @Inject
     private KafkaService kafkaService;

@@ -4,15 +4,15 @@ import com.football.football.ControllerLayer.Models.MatchComment;
 import com.football.football.ControllerLayer.Models.MatchEvent;
 import com.football.football.GatewayLayer.Mappers.IMapMatchCommentToMatchCommentDTO;
 import com.football.football.GatewayLayer.Mappers.IMapMatchEventToMatchEventPlayerDTO;
-import com.football.football.GatewayLayer.interfaces.IAddCommentDelegate;
-import com.football.football.ServiceLayer.logic.AddCommentPublishStep;
+import com.football.football.GatewayLayer.interfaces.IAddCommentsAndEventDelegate;
+import com.football.football.ServiceLayer.logic.AddCommentsAndEventsPublishStep;
 
 import javax.inject.Inject;
 
-public class AddCommentDelegate implements IAddCommentDelegate {
+public class AddCommentsAndEventsDelegate implements IAddCommentsAndEventDelegate {
 
     @Inject
-    private AddCommentPublishStep addCommentPublishStep;
+    private AddCommentsAndEventsPublishStep addCommentsAndEventsPublishStep;
 
     @Inject
     private IMapMatchEventToMatchEventPlayerDTO mapMatchEventToMatchEventPlayerDTO;
@@ -22,12 +22,12 @@ public class AddCommentDelegate implements IAddCommentDelegate {
 
     @Override
     public boolean addComment(MatchComment comment) {
-        return addCommentPublishStep.publishComment(mapMatchCommentToMatchCommentDTO.map(comment));
+        return addCommentsAndEventsPublishStep.publishComment(mapMatchCommentToMatchCommentDTO.map(comment));
     }
 
     @Override
     public boolean addEvent(MatchEvent event) {
-        return addCommentPublishStep.publishEvent(mapMatchEventToMatchEventPlayerDTO.map(event));
+        return addCommentsAndEventsPublishStep.publishEvent(mapMatchEventToMatchEventPlayerDTO.map(event));
     }
 
 }

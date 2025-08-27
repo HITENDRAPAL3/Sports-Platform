@@ -1,0 +1,10 @@
+{
+  "homeTeam": {
+    "name": "Manchester United",
+    "score": 2
+  },
+  "awayTeam": {
+    "name": "Liverpool",
+    "score": 3
+  }
+}

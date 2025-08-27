@@ -1,7 +1,7 @@
 package com.football.football.GatewayLayer.configs;
 
-import com.football.football.GatewayLayer.implementation.AddCommentDelegate;
-import com.football.football.GatewayLayer.implementation.GetDetailsDelegate;
+import com.football.football.GatewayLayer.implementation.AddCommentsAndEventsDelegate;
+import com.football.football.GatewayLayer.implementation.MatchDetailsDelegate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,13 +9,13 @@ import org.springframework.context.annotation.Configuration;
 public class DelegateConfigs {
 
     @Bean
-    public GetDetailsDelegate getDetailsDelegate() {
-        return new GetDetailsDelegate();
+    public MatchDetailsDelegate getDetailsDelegate() {
+        return new MatchDetailsDelegate();
     }
 
     @Bean
-    public AddCommentDelegate addCommentDelegate() {
-        return new AddCommentDelegate();
+    public AddCommentsAndEventsDelegate addCommentDelegate() {
+        return new AddCommentsAndEventsDelegate();
     }
 
 }

@@ -1,11 +1,11 @@
 package com.football.football.ServiceLayer.logic;
 
+import com.football.football.DomainLayer.DTO.MatchScoreDetails.MatchScoreDetailsDTO;
+
 public class GetDetailsStep {
 
-    public String getDetails() {
-        return "You have successfully connected to the football service layer. " +
-                "Please provide the necessary details to proceed. ";
+    public MatchScoreDetailsDTO getDetails(String matchId) {
+        return new MatchScoreDetailsDTO();
     }
-
 
 }
