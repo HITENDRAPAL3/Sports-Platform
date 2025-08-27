@@ -9,12 +9,12 @@ import javax.inject.Inject;
 public class AddMatchDetailsStep {
 
     @Inject
-    private IMatchScoreDetailsMapper matchCommentMapper;
+    private IMatchScoreDetailsMapper matchScoreDetailsMapper;
 
     @Inject
     private FootballRepo footballRepo;
 
     public void addMatchDetails(MatchScoreDetailsDTO matchScoreDetailsDTO) {
-        footballRepo.save(matchCommentMapper.map(matchScoreDetailsDTO));
+        footballRepo.save(matchScoreDetailsMapper.toEntity(matchScoreDetailsDTO));
     }
 }

@@ -2,9 +2,6 @@ package com.football.football.PersistenceLayer.jpa;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @Entity
@@ -13,7 +10,7 @@ public class MatchScoreDetailsJPA {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long matchId;
+    private Long Id;
 
     @Embedded
     @AttributeOverrides({
@@ -30,9 +27,7 @@ public class MatchScoreDetailsJPA {
     private TeamInfoEmbeddable awayTeam;
 
     @Embeddable
-    @Getter
-    @Setter
-    @ToString
+    @Data
     public static class TeamInfoEmbeddable {
         private String name;
         private Integer score;
