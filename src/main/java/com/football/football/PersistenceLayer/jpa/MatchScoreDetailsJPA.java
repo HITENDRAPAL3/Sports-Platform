@@ -2,6 +2,9 @@ package com.football.football.PersistenceLayer.jpa;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -10,7 +13,7 @@ public class MatchScoreDetailsJPA {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long matchId;
 
     @Embedded
     @AttributeOverrides({
