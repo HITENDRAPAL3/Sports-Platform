@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class MatchEventPlayerDTO {
     private String matchId;
     private String eventId;
-    private LocalDateTime timestamp;
+    private Instant timestamp;
     private Integer minute;
     private String eventType;
     private TeamEventDTO team;

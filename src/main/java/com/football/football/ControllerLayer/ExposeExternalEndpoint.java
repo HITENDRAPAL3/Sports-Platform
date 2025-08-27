@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/football/liveToWatch/v3")
+@CrossOrigin(origins = "*")
 public class ExposeExternalEndpoint {
 
     @Inject
