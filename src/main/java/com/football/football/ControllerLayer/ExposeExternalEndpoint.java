@@ -25,7 +25,7 @@ public class ExposeExternalEndpoint {
 
     // for CRUD operations
     @GetMapping("/getMatchDetails")
-    public ResponseEntity<?> getMatchDetails(@RequestParam String matchId) {
+    public ResponseEntity<?> getMatchDetails(@RequestParam Long matchId) {
         return ResponseEntity.ok(matchDetailsDelegate.getDetails(matchId));
     }
 

@@ -21,7 +21,7 @@ public class MatchDetailsDelegate implements IMatchDetailsDelegate {
     private IMapMatchScoreDetailsToMatchScoreDetailsDTO mapMatchScoreDetailsToMatchScoreDetailsDTO;
 
     @Override
-    public MatchScoreDetailsDTO getDetails(String matchId) {
+    public MatchScoreDetailsDTO getDetails(Long matchId) {
         return getDetailsStep.getDetails(matchId);
     }
 

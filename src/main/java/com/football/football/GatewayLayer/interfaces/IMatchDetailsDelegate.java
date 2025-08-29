@@ -4,6 +4,6 @@ import com.football.football.ControllerLayer.Models.MatchScoreDetails;
 import com.football.football.DomainLayer.DTO.MatchScoreDetails.MatchScoreDetailsDTO;
 
 public interface IMatchDetailsDelegate {
-    MatchScoreDetailsDTO getDetails(String matchId);
+    MatchScoreDetailsDTO getDetails(Long matchId);
     void addDetails(MatchScoreDetails matchScoreDetails);
 }

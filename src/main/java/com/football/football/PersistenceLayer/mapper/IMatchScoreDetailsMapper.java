@@ -7,5 +7,6 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface IMatchScoreDetailsMapper {
     MatchScoreDetailsJPA toEntity(MatchScoreDetailsDTO dto);
+    MatchScoreDetailsDTO toDTO(MatchScoreDetailsJPA jpa);
 }
 
