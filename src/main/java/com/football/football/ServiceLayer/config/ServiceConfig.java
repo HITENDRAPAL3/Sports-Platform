@@ -1,9 +1,6 @@
 package com.football.football.ServiceLayer.config;
 
-import com.football.football.ServiceLayer.logic.AddCommentsAndEventsPublishStep;
-import com.football.football.ServiceLayer.logic.AddMatchDetailsStep;
-import com.football.football.ServiceLayer.logic.DeleteMatchDetailsStep;
-import com.football.football.ServiceLayer.logic.GetDetailsStep;
+import com.football.football.ServiceLayer.logic.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,6 +22,10 @@ public class ServiceConfig {
         return new DeleteMatchDetailsStep();
     }
 
+    @Bean
+    public UpdateMatchDetailsStep updateMatchDetailsStep(){
+        return new UpdateMatchDetailsStep();
+    }
 
     @Bean
     public AddCommentsAndEventsPublishStep addCommentPublishStep() {

@@ -6,5 +6,6 @@ import com.football.football.DomainLayer.DTO.MatchScoreDetails.MatchScoreDetails
 public interface IMatchDetailsDelegate {
     MatchScoreDetailsDTO getDetails(Long matchId);
     void addDetails(MatchScoreDetails matchScoreDetails);
-    void deleteDetails(Long match);
+    void deleteDetails(Long matchId);
+    void updateDetails(Long matchId, MatchScoreDetails matchScoreDetails);
 }

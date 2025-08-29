@@ -42,12 +42,26 @@ public class ExposeExternalEndpoint {
 
     @DeleteMapping("/deleteByMatchId")
     public ResponseEntity<?> deleteByMatchId(@RequestParam Long matchId) {
-
         try {
             matchDetailsDelegate.deleteDetails(matchId);
             return ResponseEntity.ok(String.format("MatchID : %s had been deleted", matchId));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @PatchMapping("patchByMatchId")
+    public ResponseEntity<?> patchByMatchId(@RequestParam Long matchId, @RequestBody MatchScoreDetails matchScoreDetails) {
+        try {
+            matchDetailsDelegate.updateDetails(matchId, matchScoreDetails);
+            return ResponseEntity.ok("Match Details updated successfully");
+        } catch (RuntimeException e) {
+            // For example, if match not found or validation failed
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            // For any other unexpected exceptions
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to update Match Details: " + e.getMessage());
         }
     }
 

@@ -7,6 +7,7 @@ import com.football.football.GatewayLayer.interfaces.IMatchDetailsDelegate;
 import com.football.football.ServiceLayer.logic.AddMatchDetailsStep;
 import com.football.football.ServiceLayer.logic.DeleteMatchDetailsStep;
 import com.football.football.ServiceLayer.logic.GetDetailsStep;
+import com.football.football.ServiceLayer.logic.UpdateMatchDetailsStep;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,9 @@ public class MatchDetailsDelegate implements IMatchDetailsDelegate {
 
     @Inject
     private DeleteMatchDetailsStep deleteMatchDetailsStep;
+
+    @Inject
+    private UpdateMatchDetailsStep updateMatchDetailsStep;
 
     @Inject
     private IMapMatchScoreDetailsToMatchScoreDetailsDTO mapMatchScoreDetailsToMatchScoreDetailsDTO;
@@ -37,6 +41,11 @@ public class MatchDetailsDelegate implements IMatchDetailsDelegate {
     @Override
     public void deleteDetails(Long matchId) {
         deleteMatchDetailsStep.deleteMatchDetails(matchId);
+    }
+
+    @Override
+    public void updateDetails(Long matchId, MatchScoreDetails matchScoreDetails) {
+        updateMatchDetailsStep.updateMatchDetails(matchId, matchScoreDetails);
     }
 
 }
