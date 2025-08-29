@@ -2,9 +2,7 @@ package com.football.football.PersistenceLayer.jpa;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
 
 @Data
 @Entity
@@ -13,26 +11,21 @@ public class MatchScoreDetailsJPA {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "match_id")
     private Long matchId;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "name", column = @Column(name = "home_team_name")),
-            @AttributeOverride(name = "score", column = @Column(name = "home_team_score"))
-    })
-    private TeamInfoEmbeddable homeTeam;
+    @Column(name = "home_team_name")
+    private String homeTeamName;
 
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride(name = "name", column = @Column(name = "away_team_name")),
-            @AttributeOverride(name = "score", column = @Column(name = "away_team_score"))
-    })
-    private TeamInfoEmbeddable awayTeam;
+    @Column(name = "home_team_score")
+    private Integer homeTeamScore;
 
-    @Embeddable
-    @Data
-    public static class TeamInfoEmbeddable {
-        private String name;
-        private Integer score;
-    }
+    @Column(name = "away_team_name")
+    private String awayTeamName;
+
+    @Column(name = "away_team_score")
+    private Integer awayTeamScore;
 }

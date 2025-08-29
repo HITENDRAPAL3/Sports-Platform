@@ -9,15 +9,10 @@ import lombok.ToString;
 @ToString
 public class MatchScoreDetailsDTO {
 
-    private TeamInfoDTO homeTeam;
-    private TeamInfoDTO awayTeam;
-
-    @Getter
-    @Setter
-    @ToString
-    public static class TeamInfoDTO {
-        private String name;
-        private Integer score;
-    }
+    private Long matchId;
+    private String homeTeamName;
+    private Integer homeTeamScore;
+    private String awayTeamName;
+    private Integer awayTeamScore;
 
 }

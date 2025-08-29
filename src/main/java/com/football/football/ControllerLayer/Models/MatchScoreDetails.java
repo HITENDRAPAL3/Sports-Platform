@@ -10,22 +10,18 @@ import lombok.ToString;
 @ToString
 public class MatchScoreDetails {
 
-    @JsonProperty("homeTeam")
-    private TeamInfo homeTeam;
+    @JsonProperty("matchId")
+    private Long matchId;
 
-    @JsonProperty("awayTeam")
-    private TeamInfo awayTeam;
+    @JsonProperty("homeTeamName")
+    private String homeTeamName;
 
-    @Getter
-    @Setter
-    @ToString
-    public static class TeamInfo {
+    @JsonProperty("homeTeamScore")
+    private Integer homeTeamScore;
 
-        @JsonProperty("name")
-        private String name;
+    @JsonProperty("awayTeamName")
+    private String awayTeamName;
 
-        @JsonProperty("score")
-        private Integer score;
-
-    }
+    @JsonProperty("awayTeamScore")
+    private Integer awayTeamScore;
 }
