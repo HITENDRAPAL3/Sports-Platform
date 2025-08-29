@@ -31,8 +31,24 @@ public class ExposeExternalEndpoint {
 
     @PostMapping("/addMatchDetails")
     public ResponseEntity<?> addMatchDetails(@RequestBody MatchScoreDetails matchScoreDetails) {
-        matchDetailsDelegate.addDetails(matchScoreDetails);
-        return ResponseEntity.ok("Match Details added successfully");
+        try {
+            matchDetailsDelegate.addDetails(matchScoreDetails);
+            return ResponseEntity.ok("Match Details added successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to add Match Details: " + e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/deleteByMatchId")
+    public ResponseEntity<?> deleteByMatchId(@RequestParam Long matchId) {
+
+        try {
+            matchDetailsDelegate.deleteDetails(matchId);
+            return ResponseEntity.ok(String.format("MatchID : %s had been deleted", matchId));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 
     // for external events
