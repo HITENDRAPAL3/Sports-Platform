@@ -23,12 +23,17 @@ public class ServiceConfig {
     }
 
     @Bean
-    public UpdateMatchDetailsStep updateMatchDetailsStep(){
+    public UpdateMatchDetailsStep updateMatchDetailsStep() {
         return new UpdateMatchDetailsStep();
     }
 
     @Bean
     public AddCommentsAndEventsPublishStep addCommentPublishStep() {
         return new AddCommentsAndEventsPublishStep();
+    }
+
+    @Bean
+    public GetAllMatchDetailsStep getAllMatchDetailsStep() {
+        return new GetAllMatchDetailsStep();
     }
 }
