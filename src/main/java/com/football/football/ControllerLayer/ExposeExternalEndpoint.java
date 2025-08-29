@@ -31,7 +31,7 @@ public class ExposeExternalEndpoint {
 
     @GetMapping("/getAllMatchDetails")
     public ResponseEntity<?> getAllMatchDetails() {
-        return ResponseEntity.ok(matchDetailsDelegate.getAllMatchDetails());
+        return -ResponseEntity.ok(matchDetailsDelegate.getAllMatchDetails());
     }
 
     @PostMapping("/addMatchDetails")

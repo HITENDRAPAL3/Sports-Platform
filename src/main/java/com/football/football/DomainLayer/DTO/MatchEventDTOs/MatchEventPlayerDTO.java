@@ -15,8 +15,8 @@ public class MatchEventPlayerDTO {
     private Instant timestamp;
     private Integer minute;
     private String eventType;
-    private TeamEventDTO team;
-    private PlayerEventDTO player;
+    private String team;
+    private String player;
     private String description;
-    private AdditionalInfoDTO additionalInfo;
+    private String additionalInfo;
 }

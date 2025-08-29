@@ -26,53 +26,15 @@ public class MatchEvent {
     private String eventType;
 
     @JsonProperty("team")
-    private Team team;
+    private String team;
 
     @JsonProperty("player")
-    private Player player;
+    private String player;
 
     @JsonProperty("description")
     private String description;
 
     @JsonProperty("additionalInfo")
-    private AdditionalInfo additionalInfo;
+    private String additionalInfo;
 
-    @Getter
-    @Setter
-    @ToString
-    public static class Team {
-
-        @JsonProperty("id")
-        private String id;
-
-        @JsonProperty("name")
-        private String name;
-    }
-
-    @Getter
-    @Setter
-    @ToString
-    public static class Player {
-
-        @JsonProperty("id")
-        private String id;
-
-        @JsonProperty("name")
-        private String name;
-
-        @JsonProperty("position")
-        private String position;
-    }
-
-    @Getter
-    @Setter
-    @ToString
-    public static class AdditionalInfo {
-
-        @JsonProperty("substitutionFor")
-        private String substitutionFor;
-
-        @JsonProperty("substitutionType")
-        private String substitutionType;
-    }
 }
