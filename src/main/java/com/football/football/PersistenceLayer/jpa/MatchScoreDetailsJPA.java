@@ -28,4 +28,8 @@ public class MatchScoreDetailsJPA {
 
     @Column(name = "away_team_score")
     private Integer awayTeamScore;
+
+    @Column(name = "match_status")
+    private String matchStatus;
+
 }

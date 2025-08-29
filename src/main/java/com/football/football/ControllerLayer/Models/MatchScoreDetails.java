@@ -24,4 +24,7 @@ public class MatchScoreDetails {
 
     @JsonProperty("awayTeamScore")
     private Integer awayTeamScore;
+
+    @JsonProperty("matchStatus")
+    private String matchStatus;
 }
